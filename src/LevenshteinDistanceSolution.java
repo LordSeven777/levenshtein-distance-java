@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class LevenshteinDistanceSolution {
     private int distance;
@@ -23,8 +24,8 @@ public class LevenshteinDistanceSolution {
         return matrix;
     }
 
-    public ArrayList<TransformationSnapshot> backtrackTransformations() {
-        ArrayList<TransformationSnapshot> snapshots = new ArrayList<TransformationSnapshot>();
+    public LinkedList<TransformationSnapshot> backtrackTransformations() {
+        LinkedList<TransformationSnapshot> snapshots = new LinkedList<TransformationSnapshot>();
         int distance = matrix.getLastValue(), row = wordFrom.length(), col = wordTo.length(), position = col;
         char character = '_'; // Just a default value to prevent a non-initialized variable error
         TransformationOperation operation = TransformationOperation.Addition; // Just a default value to prevent a non-initialized variable error
@@ -87,7 +88,7 @@ public class LevenshteinDistanceSolution {
     }
 
     public void describe() {
-        ArrayList<TransformationSnapshot> snapshots = backtrackTransformations();
+        LinkedList<TransformationSnapshot> snapshots = backtrackTransformations();
         int count = snapshots.size();
 
         System.out.println("The Levenshtein distance is: " + distance);
